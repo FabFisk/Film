@@ -35,7 +35,7 @@
 		<property name="hbm2ddl.auto">update</property>
 		
 <!-- Inserire riga di mapping per ogni classe da mappare -->
-		<mapping class="it.alfasoft.fabrizio." />
+		<mapping class="it.alfasoft.fabrizio.bean.Film" />
 
 	</session-factory>
 </hibernate-configuration>

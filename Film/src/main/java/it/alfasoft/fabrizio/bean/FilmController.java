@@ -20,7 +20,7 @@ public class FilmController implements Serializable{
 	private static final long serialVersionUID = 1L;
 	
 	private Gestione g;
-	private List<Film> film;
+	private List<Film> films;
 	
 	public FilmController (){
 		g = new Gestione();
@@ -35,20 +35,32 @@ public class FilmController implements Serializable{
 	}
 	
 	public List<Film> getFilm() {
-		return film;
+		return films;
 	}
 
 	public void setFilm(List<Film> film) {
-		this.film = film;
+		this.films = film;
 	}
 
 	public static long getSerialversionuid() {
 		return serialVersionUID;
 	}
 
+	public boolean createFilm(Film f){
+		return g.createFilm(f);
+	}
+		
 	public List<Film> updateList(){
 		this.setFilm(g.getAll());
-		return film;
+		return films;
+	}
+	
+	public void editFilm(long id){
+		g.editFilm(id);
+	}
+	
+	public void deleteFilm(long id){
+		g.deleteFilm(id);
 	}
 	
 	

@@ -11,32 +11,33 @@
 </h:head>
 
 <h:body>
-	<h:dataTable value="" var="" styleClass=""
-				headerClass="" rowClass=""> 
+	<h:button value="Aggiungi Film!" outcome="form"/>
+	<h:dataTable value="filmControl.updateList()" var="filmTemp"> 
 		<h:column>
 			<f:facet name="header">Titolo</f:facet>
-			
+			#{filmTemp.titolo}
 		</h:column>
 		<h:column>
 			<f:facet name="header">Anno</f:facet>
-			
+			#{filmTemp.anno}
 		</h:column>
 		<h:column>
 			<f:facet name="header">Regista</f:facet>
-			
+			#{filmTemp.regista}
 		</h:column>	
 		<h:column>
 			<f:facet name="header">Genere</f:facet>
-			
+			#{filmTemp.genere}
 		</h:column>	
 		<h:column>
 			<f:facet name="header">Codice Film</f:facet>
-			
+			#{filmTemp.codFilm}
 		</h:column>	
-		<h:column>
-			<f:facet name="header">Action</f:facet>
-			
-		</h:column>	
+<!-- 		<h:column> -->
+<!-- 			<f:facet name="header">Action</f:facet> -->
+<!-- 			<h:commandLink>Edit</h:commandLink> -->
+<!-- 			<h:commandLink>Delete</h:commandLink> -->
+<!-- 		</h:column>	 -->
 	</h:dataTable>
 
 </h:body>

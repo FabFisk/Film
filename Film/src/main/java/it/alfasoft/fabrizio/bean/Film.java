@@ -9,6 +9,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Transient;
 
 @Entity
 @ManagedBean(name="film", eager=true)
@@ -27,10 +28,12 @@ public class Film implements Serializable{
 	private String regista;
 	private String genere;
 	private String codFilm;
+	@Transient
 	private List<String> generi;
 	
 	public Film (){
 		generi = new ArrayList<String>();
+		generi.add("");
 		generi.add("Horror");
 		generi.add("Fantascienza");
 		generi.add("Thriller");
@@ -60,20 +63,36 @@ public class Film implements Serializable{
 		this.anno = anno;
 	}
 
-	public String getRegistra() {
-		return regista;
-	}
-
-	public void setRegistra(String registra) {
-		this.regista = registra;
-	}
-
 	public String getCodFilm() {
 		return codFilm;
 	}
 
 	public void setCodFilm(String codFilm) {
 		this.codFilm = codFilm;
+	}
+	
+	public String getRegista() {
+		return regista;
+	}
+
+	public void setRegista(String regista) {
+		this.regista = regista;
+	}
+
+	public String getGenere() {
+		return genere;
+	}
+
+	public void setGenere(String genere) {
+		this.genere = genere;
+	}
+
+	public List<String> getGeneri() {
+		return generi;
+	}
+
+	public void setGeneri(List<String> generi) {
+		this.generi = generi;
 	}
 
 	public static long getSerialversionuid() {
