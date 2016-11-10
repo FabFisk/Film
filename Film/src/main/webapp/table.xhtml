@@ -5,7 +5,9 @@
 	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:f="http://java.sun.com/jsf/core">
-
+<f:metadata>
+	<f:event listener="#{filmControl.updateList()}" type="preRenderView"></f:event>
+</f:metadata>
 <h:head>
 	<title></title>
 	<h:outputStylesheet library="css" name="tabelle.css"/>
@@ -14,7 +16,7 @@
 <h:body>
 	<h:button value="Aggiungi Film!" outcome="form"/>
 	
-	<h:dataTable value="#{filmControl.updateList()}" var="filmTemp" 
+	<h:dataTable value="#{filmControl.films}" var="filmTemp" 
 		styleClass="demo-table" headerClass="demo-table-header"
 		rowClasses="demo-table-odd-row, demo-table-even-row"> 
 		<h:column>
@@ -40,8 +42,8 @@
 		<h:column>
 			<f:facet name="header">Action</f:facet>
 			<h:form>
-				<h:commandButton value="Edit" action="#{filmControl.editFilm(filmTemp)}"/>
-				<h:commandButton value="Delete" action="#{filmControl.deleteFilm(filmTemp.id)}"/>
+				<h:commandButton onclick="if(!confirm('Vuoi modificare ?'))return false" value="Edit" action="#{filmControl.editFilm(filmTemp)}"/>
+				<h:commandButton onclick="if(!confirm('Vuoi cancellare?'))return false" value="Delete" action="#{filmControl.deleteFilm(filmTemp.id)}"/>
 			</h:form>
 		</h:column>	
 	</h:dataTable>

@@ -8,10 +8,12 @@ import java.util.List;
 import java.util.Map;
 
 import javax.faces.bean.ManagedBean;
+import javax.faces.bean.SessionScoped;
 import javax.faces.context.ExternalContext;
 import javax.faces.context.FacesContext;
 
 @ManagedBean(name="filmControl", eager=true)
+@SessionScoped
 public class FilmController implements Serializable{
 
 	/**
@@ -34,12 +36,12 @@ public class FilmController implements Serializable{
 		this.g = g;
 	}
 	
-	public List<Film> getFilm() {
+	public List<Film> getFilms() {
 		return films;
 	}
 
-	public void setFilm(List<Film> film) {
-		this.films = film;
+	public void setFilms(List<Film> films) {
+		this.films = films;
 	}
 
 	public static long getSerialversionuid() {
@@ -53,20 +55,17 @@ public class FilmController implements Serializable{
 		return "form";
 	}
 		
-	public List<Film> updateList(){
-		this.setFilm(g.getAll());
-		return films;
+	public void updateList(){
+		this.setFilms(g.getAll());
 	}
 	
-	public String editFilm(Film f){
-	
+	public String editFilm(Film f){	
 		Film f1 = g.redFilm(f.getId());
 		ExternalContext exContext = FacesContext.getCurrentInstance().getExternalContext();
 		Map<String, Object> requestMap = exContext.getRequestMap();
 		requestMap.put("film", f1);
 		return "edit";
-	}
-	
+	}	
 	public String deleteFilm(long id){
 		g.deleteFilm(id);
 		return "table.xhtml?faces-redirect=true";

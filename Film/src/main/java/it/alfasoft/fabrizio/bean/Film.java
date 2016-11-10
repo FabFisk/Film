@@ -109,10 +109,10 @@ public class Film implements Serializable{
 			return;
 		}
 		String dato = value.toString();
-		if (!dato.startsWith("mov")) {
-			FacesMessage msg = new FacesMessage("Codice errato!");
+		if (!dato.startsWith("movie")) {
+			FacesMessage msg = new FacesMessage("Il Codice Film è SBAGLIATO!");
 			throw new ValidatorException(msg);
-
 		}
+
 	}
 }

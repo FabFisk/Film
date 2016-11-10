@@ -33,7 +33,6 @@
 					<f:validateLongRange minimum="1940" maximum="2016" />
 				</h:inputText>
 				<h:message for="anno" styleClass="colori" />
-				<br />
 			</div>
 		</div>
 		<div class="campo">
@@ -45,7 +44,6 @@
 					<f:validateLength minimum="5" maximum="20" />
 				</h:inputText>
 				<h:message for="regista" styleClass="colori" />
-				<br />
 			</div>
 		</div>
 		<div class="campo">
@@ -55,20 +53,14 @@
 					validator="#{film.validaCodice}">
 				</h:inputText>
 				<h:message for="codFilm" sytleClass="colori" />
-				<br />
 			</div>
 		</div>
 		<div class="campo">
 			<div class="etichetta">Genere</div>
-
 			<h:selectOneMenu value="#{film.genere}" label="genere"
 				required="true">
-
 				<f:selectItems value="#{film.generi}" />
-
 			</h:selectOneMenu>
-			<br />
-
 		</div>
 		<div class="campo">
 			<div class="etichetta"></div>
