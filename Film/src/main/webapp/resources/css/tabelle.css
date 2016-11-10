@@ -23,3 +23,18 @@
 	background:none repeat scroll 0 0 #F9F9F9;
 	text-align:center;
 }
+
+.campo{
+	width: 400px;
+}
+
+.etichetta{
+	width: 20%;
+	float: left;
+	text-align: center;
+}
+
+.input{
+	width: 80%;
+	
+}

@@ -8,6 +8,7 @@
 
 <h:head>
 	<title></title>
+	<h:outputStylesheet library="css" name="tabelle.css"/>
 </h:head>
 
 <h:body>
@@ -40,6 +41,7 @@
 		</h:selectOneMenu><br/>
 		<h:commandButton value="Aggiorna!" action="#{filmControl.updateFilm(film)}"/>	
 	</h:form>
+	<br/>
 	<h:button value="Lista Film" outcome="table"/>
 
 </h:body>
