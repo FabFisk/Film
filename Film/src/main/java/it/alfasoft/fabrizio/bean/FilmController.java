@@ -47,9 +47,9 @@ public class FilmController implements Serializable{
 
 	public String createFilm(Film f){
 		if(g.createFilm(f)){
-			return "form.xhtml?faces-redirect=true";
+			return "form?faces-redirect=true";
 		}
-		return "form.hxtml";
+		return "form";
 	}
 		
 	public List<Film> updateList(){
@@ -63,7 +63,7 @@ public class FilmController implements Serializable{
 		ExternalContext exContext = FacesContext.getCurrentInstance().getExternalContext();
 		Map<String, Object> requestMap = exContext.getRequestMap();
 		requestMap.put("film", f1);
-		return "edit.xhtml";
+		return "edit";
 	}
 	
 	public String deleteFilm(long id){
@@ -73,7 +73,7 @@ public class FilmController implements Serializable{
 	}
 	public String updateFilm(Film f){
 		g.updateFilm(f);		
-		return "table.xhtml?faces-redirect=true";		
+		return "table?faces-redirect=true";		
 	}
 
 }

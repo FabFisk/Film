@@ -4,7 +4,11 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
+import javax.faces.component.UIComponent;
+import javax.faces.context.FacesContext;
+import javax.faces.validator.ValidatorException;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -97,5 +101,18 @@ public class Film implements Serializable{
 
 	public static long getSerialversionuid() {
 		return serialVersionUID;
+	}
+	
+	public void validaCodice(FacesContext context, UIComponent component,
+			Object value) throws ValidatorException {
+		if (value == null) {
+			return;
+		}
+		String dato = value.toString();
+		if (!dato.startsWith("mov")) {
+			FacesMessage msg = new FacesMessage("Codice errato!");
+			throw new ValidatorException(msg);
+
+		}
 	}
 }

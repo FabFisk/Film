@@ -11,13 +11,31 @@
 </h:head>
 
 <h:body>
-	<h:form>
-		ID: <h:inputText id="id" value="#{film.id}"/><br/>
-		Titolo: <h:inputText id="titolo" value="#{film.titolo}"/><br/>
-		Anno: <h:inputText id="anno" value="#{film.anno}"/><br/>
-		Regista: <h:inputText id="regista" value="#{film.regista}"/><br/>
-		Codice: <h:inputText id="codFilm" value="#{film.codFilm}"/><br/>
-		Genere: <h:selectOneMenu value="#{film.genere}"><br/>
+<h:form>
+		Titolo: <h:inputText id="titolo" value="#{film.titolo}" label="titolo" required="true"
+					validatorMessage="Errore: inserisci min 5 caratteri max 30 caratteri">
+					<f:validateLength minimum="5" maximum="20"/>
+                    </h:inputText>                     
+                    <h:message for="titolo" styleClass="colori"/>
+					<br/>
+		Anno: <h:inputText id="anno" value="#{film.anno}" label="anno"
+         		   required="true"
+         		   validatorMessage="Formato accettato: xxxx">
+         		   <f:validateRegex pattern="\d{4}"/>
+         		   <f:validateLongRange minimum="1940" maximum="2016"/>
+         		   </h:inputText>         		   
+         		   <h:message for="anno" styleClass="colori"/><br/>
+		Regista: <h:inputText id="regista" value="#{film.regista}" label="regista"
+                   required="true"
+                   validatorMessage="Errore: inserisci min 5 caratteri max 20 caratteri">
+                   <f:validateLength minimum="5" maximum="20"/>
+                   </h:inputText>
+                   <h:message for="regista" styleClass="colori"/><br/>
+		Codice: <h:inputText id="codFilm" value="#{film.codFilm}" validator="#{film.validaCodice}">
+				</h:inputText>
+				<h:message for="codFilm" sytleClass="colori"/><br/>
+		Genere: <h:selectOneMenu value="#{film.genere}" label="genere"
+         			required="true"><br/>
 			<f:selectItems value="#{film.generi}"/>
 		</h:selectOneMenu><br/>
 		<h:commandButton value="Aggiorna!" action="#{filmControl.updateFilm(film)}"/>	
