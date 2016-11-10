@@ -1,5 +1,6 @@
-package it.alfasoft.fabrizio.bean;
+package it.alfasoft.fabrizio.controller;
 
+import it.alfasoft.fabrizio.bean.Film;
 import it.alfasoft.fabrizio.service.Gestione;
 
 import java.io.Serializable;
