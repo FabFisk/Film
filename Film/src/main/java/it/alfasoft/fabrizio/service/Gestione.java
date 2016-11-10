@@ -21,13 +21,18 @@ public class Gestione {
 		return fDAO.create(f);
 	}
 
-	public void editFilm(long id) {
-		Film f = fDAO.read(id);
-		fDAO.update(f);		
+	public Film redFilm(long id) {
+		return fDAO.read(id);
 	}
 
-	public void deleteFilm(long id) {
+	public boolean deleteFilm(long id) {
 		Film f = fDAO.read(id);
-		fDAO.delete(f);
+		return fDAO.delete(f);
 	}
+
+	public void updateFilm(Film f) {
+		fDAO.update(f);
+	}
+
+
 }

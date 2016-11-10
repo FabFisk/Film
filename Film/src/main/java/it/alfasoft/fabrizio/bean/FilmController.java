@@ -4,12 +4,11 @@ import it.alfasoft.fabrizio.service.Gestione;
 
 import java.io.Serializable;
 import java.util.List;
+import java.util.Map;
 
 import javax.faces.bean.ManagedBean;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.faces.context.ExternalContext;
+import javax.faces.context.FacesContext;
 
 @ManagedBean(name="filmControl", eager=true)
 public class FilmController implements Serializable{
@@ -46,8 +45,11 @@ public class FilmController implements Serializable{
 		return serialVersionUID;
 	}
 
-	public boolean createFilm(Film f){
-		return g.createFilm(f);
+	public String createFilm(Film f){
+		if(g.createFilm(f)){
+			return "form.xhtml?faces-redirect=true";
+		}
+		return "form.hxtml";
 	}
 		
 	public List<Film> updateList(){
@@ -55,14 +57,23 @@ public class FilmController implements Serializable{
 		return films;
 	}
 	
-	public void editFilm(long id){
-		g.editFilm(id);
+	public String editFilm(Film f){
+	
+		Film f1 = g.redFilm(f.getId());
+		ExternalContext exContext = FacesContext.getCurrentInstance().getExternalContext();
+		Map<String, Object> requestMap = exContext.getRequestMap();
+		requestMap.put("film", f1);
+		return "edit.xhtml";
 	}
 	
-	public void deleteFilm(long id){
+	public String deleteFilm(long id){
 		g.deleteFilm(id);
+		return "table.xhtml?faces-redirect=true";
+		
 	}
-	
-	
+	public String updateFilm(Film f){
+		g.updateFilm(f);		
+		return "table.xhtml?faces-redirect=true";		
+	}
 
 }

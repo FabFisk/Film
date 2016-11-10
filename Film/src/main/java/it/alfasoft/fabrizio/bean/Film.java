@@ -98,8 +98,4 @@ public class Film implements Serializable{
 	public static long getSerialversionuid() {
 		return serialVersionUID;
 	}
-	
-	
-	
-
 }

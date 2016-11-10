@@ -7,15 +7,15 @@ public class TestMain {
 
 	public static void main(String[] args) {
 		
-		Gestione g = new Gestione();
-		Film f = new Film();
-		f.setTitolo("Pulp Fiction");
-		f.setRegista("Quentin Tarantino");
-		f.setAnno("1994");
-		f.setGenere("Pulp");
-		f.setCodFilm("Prova1");
-		
-		g.createFilm(f);
+//		Gestione g = new Gestione();
+//		Film f = new Film();
+//		f.setTitolo("Jurassic Park");
+//		f.setRegista("Spielberg");
+//		f.setAnno("1985");
+//		f.setGenere("Fantascienza");
+//		f.setCodFilm("Prova3");
+//		
+//		g.createFilm(f);
 	
 	}
 

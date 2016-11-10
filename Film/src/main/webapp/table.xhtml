@@ -12,7 +12,8 @@
 
 <h:body>
 	<h:button value="Aggiungi Film!" outcome="form"/>
-	<h:dataTable value="filmControl.updateList()" var="filmTemp"> 
+	
+	<h:dataTable value="#{filmControl.updateList()}" var="filmTemp"> 
 		<h:column>
 			<f:facet name="header">Titolo</f:facet>
 			#{filmTemp.titolo}
@@ -33,11 +34,13 @@
 			<f:facet name="header">Codice Film</f:facet>
 			#{filmTemp.codFilm}
 		</h:column>	
-<!-- 		<h:column> -->
-<!-- 			<f:facet name="header">Action</f:facet> -->
-<!-- 			<h:commandLink>Edit</h:commandLink> -->
-<!-- 			<h:commandLink>Delete</h:commandLink> -->
-<!-- 		</h:column>	 -->
+		<h:column>
+			<f:facet name="header">Action</f:facet>
+			<h:form>
+				<h:commandButton value="Edit" action="#{filmControl.editFilm(filmTemp)}"/>
+				<h:commandButton value="Delete" action="#{filmControl.deleteFilm(filmTemp.id)}"/>
+			</h:form>
+		</h:column>	
 	</h:dataTable>
 
 </h:body>

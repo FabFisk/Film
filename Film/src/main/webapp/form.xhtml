@@ -12,15 +12,16 @@
 
 <h:body>
 	<h:form>
-		<h:inputText id="titolo" value="#{film.titolo}"/>
-		<h:inputText id="anno" value="#{film.anno}"/>
-		<h:inputText id="regista" value="#{film.regista}"/>
-		<h:inputText id="codFilm" value="#{film.codFilm}"/>
-		<h:selectOneMenu value="#{film.genere}">
+		Titolo: <h:inputText id="titolo" value="#{film.titolo}"/><br/>
+		Anno: <h:inputText id="anno" value="#{film.anno}"/><br/>
+		Regista: <h:inputText id="regista" value="#{film.regista}"/><br/>
+		Codice: <h:inputText id="codFilm" value="#{film.codFilm}"/><br/>
+		Genere: <h:selectOneMenu value="#{film.genere}"><br/>
 			<f:selectItems value="#{film.generi}"/>
-		</h:selectOneMenu>		
-		<h:commandButton value="Registra!" action=""/>	
+		</h:selectOneMenu><br/>
+		<h:commandButton value="Registra!" action="#{filmControl.createFilm(film)}"/>	
 	</h:form>
+	<h:button value="Lista Film" outcome="table"/>
 
 </h:body>
 </html>
