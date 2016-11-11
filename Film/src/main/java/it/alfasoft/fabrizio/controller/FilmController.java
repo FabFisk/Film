@@ -86,7 +86,7 @@ public class FilmController implements Serializable{
 	}	
 	public String deleteFilm(long id){
 		g.deleteFilm(id);
-		return "table.xhtml?faces-redirect=true";
+		return "Table2.xhtml?faces-redirect=true";
 		
 	}
 	public String updateFilm(Film f){
