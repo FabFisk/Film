@@ -4,9 +4,11 @@ import it.alfasoft.fabrizio.bean.Film;
 import it.alfasoft.fabrizio.service.Gestione;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
+import javax.faces.bean.ApplicationScoped;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 import javax.faces.context.ExternalContext;
@@ -23,9 +25,15 @@ public class FilmController implements Serializable{
 	
 	private Gestione g;
 	private List<Film> films;
+	private List<String> generi;
 	
 	public FilmController (){
 		g = new Gestione();
+		generi = new ArrayList<String>();
+		generi.add("");
+		generi.add("Horror");
+		generi.add("Fantascienza");
+		generi.add("Thriller");
 	}
 	
 	public Gestione getG() {
@@ -42,6 +50,14 @@ public class FilmController implements Serializable{
 
 	public void setFilms(List<Film> films) {
 		this.films = films;
+	}
+
+	public List<String> getGeneri() {
+		return generi;
+	}
+
+	public void setGeneri(List<String> generi) {
+		this.generi = generi;
 	}
 
 	public static long getSerialversionuid() {

@@ -8,11 +8,12 @@
 
 <h:head>
 	<title></title>
-	<h:outputStylesheet library="css" name="tabelle.css"/>
+	<h:outputStylesheet library="css" name="tabelle.css" />
 </h:head>
 
 <h:body>
 	<h:form>
+		<h:inputHidden id="id" value="#{film.id}"></h:inputHidden>
 		<div class="campo">
 			<div class="etichetta">Titolo</div>
 			<div class="input">
@@ -65,13 +66,13 @@
 		<div class="campo">
 			<div class="etichetta"></div>
 			<div class="input">
-			<h:commandButton value="Aggiorna!" 
-			action="#{filmControl.updateFilm(film)}"/>
+				<h:commandButton value="Aggiorna!"
+					action="#{filmControl.updateFilm(film)}" />
 			</div>
 		</div>
 	</h:form>
-	<br/>
-	<h:button value="Lista Film" outcome="table"/>
+	<br />
+	<h:button value="Lista Film" outcome="table" />
 
 </h:body>
 </html>

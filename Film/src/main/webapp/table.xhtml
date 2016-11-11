@@ -4,21 +4,23 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:h="http://java.sun.com/jsf/html"
-	xmlns:f="http://java.sun.com/jsf/core">
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+
 <f:metadata>
 	<f:event listener="#{filmControl.updateList()}" type="preRenderView"></f:event>
 </f:metadata>
 <h:head>
 	<title></title>
-	<h:outputStylesheet library="css" name="tabelle.css"/>
+	<h:outputStylesheet library="css" name="tabelle.css" />
 </h:head>
 
 <h:body>
-	<h:button value="Aggiungi Film!" outcome="form"/>
-	
-	<h:dataTable value="#{filmControl.films}" var="filmTemp" 
+	<h:button value="Aggiungi Film!" outcome="form" />
+
+	<h:dataTable value="#{filmControl.films}" var="filmTemp"
 		styleClass="demo-table" headerClass="demo-table-header"
-		rowClasses="demo-table-odd-row, demo-table-even-row"> 
+		rowClasses="demo-table-odd-row, demo-table-even-row">
 		<h:column>
 			<f:facet name="header">Titolo</f:facet>
 			#{filmTemp.titolo}
@@ -30,22 +32,26 @@
 		<h:column>
 			<f:facet name="header">Regista</f:facet>
 			#{filmTemp.regista}
-		</h:column>	
+		</h:column>
 		<h:column>
 			<f:facet name="header">Genere</f:facet>
 			#{filmTemp.genere}
-		</h:column>	
+		</h:column>
 		<h:column>
 			<f:facet name="header">Codice Film</f:facet>
 			#{filmTemp.codFilm}
-		</h:column>	
+		</h:column>
 		<h:column>
 			<f:facet name="header">Action</f:facet>
 			<h:form>
-				<h:commandButton onclick="if(!confirm('Vuoi modificare ?'))return false" value="Edit" action="#{filmControl.editFilm(filmTemp)}"/>
-				<h:commandButton onclick="if(!confirm('Vuoi cancellare?'))return false" value="Delete" action="#{filmControl.deleteFilm(filmTemp.id)}"/>
+				<h:commandButton
+					onclick="if(!confirm('Vuoi modificare ?'))return false"
+					value="Edit" action="#{filmControl.editFilm(filmTemp)}" />
+				<h:commandButton
+					onclick="if(!confirm('Vuoi cancellare?'))return false"
+					value="Delete" action="#{filmControl.deleteFilm(filmTemp.id)}" />
 			</h:form>
-		</h:column>	
+		</h:column>
 	</h:dataTable>
 
 </h:body>

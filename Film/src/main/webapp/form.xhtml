@@ -66,7 +66,7 @@
 			<div class="etichetta">Genere</div>
 			<h:selectOneMenu id="genere" value="#{film.genere}" label="genere"
 				required="true" requiredMessage="Questo campo e' obbligatorio">
-				<f:selectItems value="#{film.generi}" />
+				<f:selectItems value="#{filmControl.generi}" />
 			</h:selectOneMenu>			
 		</div>
 		<h:message for="genere" styleClass="colori" />
