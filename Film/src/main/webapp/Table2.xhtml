@@ -16,7 +16,7 @@
 </h:head>
 
 <h:body>
-	<h:button value="Aggiungi Film!" outcome="form" />
+	<h:button value="Aggiungi Film!" outcome="Form2" />
 
 	<h:form id="form">
 		<p:growl id="msgs" showDetail="true" />
@@ -83,7 +83,7 @@
 				<p:rowEditor />
 			</p:column>
 			<p:column style="width:32px">			
-				<p:commandLink action="#{filmControl.deleteFilm(film.id)}"><i class="ui-icon ui-icon-trash"></i></p:commandLink>
+				<p:commandLink onclick="return (confirm('Sei sicuro ?'));" action="#{filmControl.deleteFilm(film.id)}"><i class="ui-icon ui-icon-trash"></i></p:commandLink>
 			</p:column>
 		</p:dataTable>
 

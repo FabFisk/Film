@@ -13,6 +13,7 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
 import javax.faces.context.ExternalContext;
 import javax.faces.context.FacesContext;
+import javax.faces.event.ActionEvent;
 
 import org.primefaces.event.RowEditEvent;
 
@@ -93,6 +94,15 @@ public class FilmController implements Serializable{
 		g.updateFilm(f);		
 		return "table?faces-redirect=true";		
 	}
+	
+    public void buttonAction(ActionEvent actionEvent) {
+        addMessage("Welcome to Primefaces!!");
+    }
+    
+    public void addMessage(String summary) {
+        FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_INFO, summary,  null);
+        FacesContext.getCurrentInstance().addMessage(null, message);
+    }
 	
  	public void onRowEdit(RowEditEvent event) {
  		this.updateFilm((Film) event.getObject());
