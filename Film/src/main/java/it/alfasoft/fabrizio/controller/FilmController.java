@@ -8,14 +8,16 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
-import javax.faces.bean.ApplicationScoped;
+import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
-import javax.faces.bean.SessionScoped;
+import javax.faces.bean.ViewScoped;
 import javax.faces.context.ExternalContext;
 import javax.faces.context.FacesContext;
 
+import org.primefaces.event.RowEditEvent;
+
 @ManagedBean(name="filmControl", eager=true)
-@SessionScoped
+@ViewScoped
 public class FilmController implements Serializable{
 
 	/**
@@ -91,5 +93,16 @@ public class FilmController implements Serializable{
 		g.updateFilm(f);		
 		return "table?faces-redirect=true";		
 	}
+	
+ 	public void onRowEdit(RowEditEvent event) {
+ 		this.updateFilm((Film) event.getObject());
+        FacesMessage msg = new FacesMessage("Film Modificato", ((Film) event.getObject()).getTitolo());
+        FacesContext.getCurrentInstance().addMessage(null, msg);
+    }
+     
+    public void onRowCancel(RowEditEvent event) {
+        FacesMessage msg = new FacesMessage("Modifica Annullata", ((Film) event.getObject()).getTitolo());
+        FacesContext.getCurrentInstance().addMessage(null, msg);
+    }
 
 }

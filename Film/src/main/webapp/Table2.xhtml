@@ -21,27 +21,16 @@
 	<h:form id="form">
 		<p:growl id="msgs" showDetail="true" />
 
-		<p:dataTable id="films" var="film" value="#{dtEditView.films}"
+		<p:dataTable id="films" var="film" value="#{filmControl.films}"
 			editable="true" style="margin-bottom:20px">
 			<f:facet name="header">
            Row Editing
        </f:facet>
 
-			<p:ajax event="rowEdit" listener="#{dtEditView.onRowEdit}"
+			<p:ajax event="rowEdit" listener="#{filmControl.onRowEdit}"
 				update=":form:msgs" />
-			<p:ajax event="rowEditCancel" listener="#{dtEditView.onRowCancel}"
+			<p:ajax event="rowEditCancel" listener="#{filmControl.onRowCancel}"
 				update=":form:msgs" />
-
-<!-- 			<p:column headerText="Id"> -->
-<!-- 				<p:cellEditor> -->
-<!-- 					<f:facet name="output"> -->
-<!-- 						<h:outputText value="#{film.id}" /> -->
-<!-- 					</f:facet> -->
-<!-- 					<f:facet name="input"> -->
-<!-- 						<p:inputText id="modelInput" value="#{film.id}" style="width:100%" /> -->
-<!-- 					</f:facet> -->
-<!-- 				</p:cellEditor> -->
-<!-- 			</p:column> -->
 
 			<p:column headerText="Titolo">
 				<p:cellEditor>
@@ -61,7 +50,7 @@
 					</f:facet>
 					<f:facet name="input">
 						<h:selectOneMenu value="#{film.genere}" style="width:100%">
-							<f:selectItems value="#{dtEditView.generi}" var="man"
+							<f:selectItems value="#{filmControl.generi}" var="man"
 								itemLabel="#{man}" itemValue="#{man}" />
 						</h:selectOneMenu>
 					</f:facet>
@@ -90,9 +79,11 @@
 				</p:cellEditor>
 			</p:column>
 
-
 			<p:column style="width:32px">
 				<p:rowEditor />
+			</p:column>
+			<p:column style="width:32px">
+				<p:rowToggler />
 			</p:column>
 		</p:dataTable>
 
